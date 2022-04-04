@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Goes through all bag files in bag folder, converts to csv's, and creates vizualizations. If the bag files have
-already been processed, skips that step."""
+"""Goes through all bag files in bag folder, creates csv's and creates vizualizations. If the bag files have
+already been processed, new csv files are not created."""
 
 # Libs
 import os
@@ -14,6 +14,7 @@ import visualizations as viz
 
 def main(destination_dir_name = 'test_data', topic_list = ['/hub_0/sensor_0','/hub_0/sensor_1']):
     csv_dir_path = os.getcwd() + '\\' + 'processed_data' + '\\' + destination_dir_name
+    # Process all the .bag files into csv files. Save in the specified destination directory within the processed_data directory.
     _ = ProcessBag(destination_dir_name = destination_dir_name, topic_list = topic_list)
 
     make_viz_for_all(csv_dir_path)
@@ -45,8 +46,12 @@ def make_visualizations(data):
     p1.join()
     p2.join()
 
+
+def test():
+    main(destination_dir_name='test_data', topic_list=['/hub_0/sensor_0', '/hub_0/sensor_1'])
+
 if __name__ == "__main__":
-    main(destination_dir_name = 'test_data', topic_list = ['/hub_0/sensor_0','/hub_0/sensor_1'])
+    main(destination_dir_name = 'prelim_cable_pose_data', topic_list = ['/hub_0/sensor_0','/hub_0/sensor_1'])
 
 
 
