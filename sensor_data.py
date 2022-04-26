@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+Contactile sensor 0 is the left sensor if you consider the side with the plugs the top.
+
 SensorData class serves as a container for all sensor data in a specified directory that contains ROS topic cvs data
 files (produced from bag files). Stores the data in the multiple forms so as to be compatible with different matplotlib
 functions.
@@ -88,9 +90,6 @@ class SensorData:
         xgrid = (np.flip(xgrid)).reshape(3, 3)
         ygrid = (np.flip(ygrid)).reshape(3, 3)
         zgrid = (np.flip(zgrid)).reshape(3, 3)
-        xgrid = np.transpose(xgrid)
-        ygrid = np.transpose(ygrid)
-        zgrid = np.transpose(zgrid)
         return xgrid, ygrid, zgrid
 
     def get_file_names(self):

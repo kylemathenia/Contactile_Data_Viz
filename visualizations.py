@@ -79,8 +79,8 @@ class QuiverHeatmapAnimation:
         # mgrid takes the format: np.mgrid[x_range_low:x_range_high:num_spots,y_range_low:y_range_high:num_spots]
         X, Y = np.mgrid[:2:3j,:2:3j]
         # U and V are grids where each corresponding spot has x and y values that define the arrows.
-        U = self.data[0][0]
-        V = self.data[0][1]
+        U = self.data[0][1] # X values
+        V = self.data[0][0] # Y values
         self.Q = ax.quiver(X, Y, U, V, pivot='mid', units='inches',  color = 'dodgerblue', cmap='YlOrRd',width = .05, scale=1 / 0.5)
         ax.set_xlim(-.5, 2.5)
         ax.set_ylim(-.5, 2.5)
@@ -95,8 +95,8 @@ class QuiverHeatmapAnimation:
 
     def update_quiver(self,i):
         self.im.set_array((self.data[i][2].transpose()))
-        U = self.data[i][0]
-        V = self.data[i][1]
+        U = self.data[i][1]
+        V = self.data[i][0]
         self.Q.set_UVC(U,V)
         return None,
 

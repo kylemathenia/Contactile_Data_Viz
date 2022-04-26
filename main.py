@@ -32,9 +32,9 @@ def make_visualizations(data):
     # quiver.run()
     # quiver = viz.QuiverAnimation(data.tactile_sensor_1_data['quiver_frames'], filename="quiver_animation_sensor_1", hz=500, save=True)
     # quiver.run()
-    quiver_hm = viz.QuiverHeatmapAnimation(data.tactile_sensor_0_data['quiver_frames'], max_force = 7, filename="quiver_heatmap_animation__sensor_0", hz=500, save=True)
+    quiver_hm = viz.QuiverHeatmapAnimation(data.tactile_sensor_0_data['quiver_frames'], max_force = 7, filename="quiver_heatmap_animation__sensor_0", hz=500, save=False)
     # quiver_hm.run()
-    quiver_hm2 = viz.QuiverHeatmapAnimation(data.tactile_sensor_1_data['quiver_frames'], max_force = 7, filename="quiver_heatmap_animation__sensor_1", hz=500, save=True)
+    # quiver_hm2 = viz.QuiverHeatmapAnimation(data.tactile_sensor_1_data['quiver_frames'], max_force = 7, filename="quiver_heatmap_animation__sensor_1", hz=500, save=False)
     # quiver_hm2.run()
     # heatmap = viz.HeatmapAnimation(data.tactile_sensor_0_data['heatmap_frames'],max_force = 10,filename="heatmap_animation",hz=500,save=False)
     # heatmap.run()
@@ -51,7 +51,7 @@ def test():
     main(destination_dir_name='test_data', topic_list=['/hub_0/sensor_0', '/hub_0/sensor_1'])
 
 if __name__ == "__main__":
-    main(destination_dir_name = 'prelim_cable_pose_data', topic_list = ['/hub_0/sensor_0','/hub_0/sensor_1'])
+    main(destination_dir_name = 'pillar_orientation', topic_list = ['/hub_0/sensor_0','/hub_0/sensor_1'])
 
 
 
